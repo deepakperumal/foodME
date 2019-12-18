@@ -10,7 +10,7 @@ foodMeApp.factory('customer', function($rootScope, localStorage) {
     address: undefined
   };
 
-  $rootScope.$watch(function() { return customer; }, function() {
+  $rootScope.$watch(function() {  return customer; }, function() {
     localStorage[LOCAL_STORAGE_ID] = JSON.stringify(customer);
   }, true);
 
