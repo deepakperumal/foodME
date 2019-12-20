@@ -29,8 +29,7 @@ foodMeApp.controller('RestaurantsController', function RestaurantsController(
   function filterAndSortRestaurants() {
 
 
-console.log(1)
-
+ 
     $scope.restaurants = [];
 
     // filter
