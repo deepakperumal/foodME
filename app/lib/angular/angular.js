@@ -11165,9 +11165,6 @@ function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
     element.bind('keydown', function(event) {
       var key = event.keyCode;
 
-      // ignore
-      //    command            modifiers                   arrows
-      if (key === 91 || (15 < key && key < 19) || (37 <= key && key <= 40)) return;
 
       if (!timeout) {
         timeout = $browser.defer(function() {

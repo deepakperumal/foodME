@@ -1,27 +1,41 @@
 'use strict';
 
-foodMeApp.controller('RestaurantsController',
-    function RestaurantsController($scope, customer, $location, Restaurant) {
-
+foodMeApp.controller('RestaurantsController', function RestaurantsController(
+  $scope,
+  customer,
+  $location,
+  Restaurant
+) {
   if (!customer.address) {
     $location.url('/customer');
   }
 
-  var filter = $scope.filter = {
+  var filter = ($scope.filter = {
     cuisine: [],
-    price: null,
-    rating: null
-  };
+    price: 0,
+    rating: null,
+    price_max: ''
+  });
 
   var allRestaurants = Restaurant.query(filterAndSortRestaurants);
+
+  //For sort and filter and directive is only for css
+  $scope.getNumber = function(num) {
+    if (num) return new Array(num);
+  };
+
   $scope.$watch('filter', filterAndSortRestaurants, true);
 
   function filterAndSortRestaurants() {
+
+
+console.log(1)
+
     $scope.restaurants = [];
 
     // filter
     angular.forEach(allRestaurants, function(item, key) {
-      if (filter.price && filter.price !== item.price) {
+      if (filter.price && filter.price != item.price) {
         return;
       }
 
@@ -29,13 +43,15 @@ foodMeApp.controller('RestaurantsController',
         return;
       }
 
-      if (filter.cuisine.length && filter.cuisine.indexOf(item.cuisine) === -1) {
+      if (
+        filter.cuisine.length &&
+        filter.cuisine.indexOf(item.cuisine) === -1
+      ) {
         return;
       }
 
       $scope.restaurants.push(item);
     });
-
 
     // sort
     $scope.restaurants.sort(function(a, b) {
@@ -49,8 +65,19 @@ foodMeApp.controller('RestaurantsController',
 
       return 0;
     });
-  };
+  }
+  $scope.place = null;
 
+  $scope.remove = (value, key) => {
+    if (key === 'cuisine') {
+      $scope.filter[key] = $scope.filter[key].filter(x => {
+        return x != value;
+      });
+      return;
+    }
+
+    $scope.filter[key] = value;
+  };
 
   $scope.sortBy = function(key) {
     if (filter.sortBy === key) {
@@ -61,7 +88,6 @@ foodMeApp.controller('RestaurantsController',
     }
   };
 
-
   $scope.sortIconFor = function(key) {
     if (filter.sortBy !== key) {
       return '';
@@ -69,7 +95,6 @@ foodMeApp.controller('RestaurantsController',
 
     return filter.sortAsc ? '\u25B2' : '\u25BC';
   };
-
 
   $scope.CUISINE_OPTIONS = {
     african: 'African',
@@ -86,5 +111,4 @@ foodMeApp.controller('RestaurantsController',
     thai: 'Thai',
     vegetarian: 'Vegetarian'
   };
-
 });

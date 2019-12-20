@@ -5,7 +5,7 @@
 .fm-panel {
   background-color: #fff;
 
-  border: 1px solid black;
+  border: 1px solid #c1c1c1;
 
   -webkit-border-top-left-radius: 3px;
   -moz-border-radius-topleft: 3px;
@@ -22,17 +22,15 @@
 }
 
 .fm-panel > h4 {
-  background-color: #E5E5E5;
   margin: -10px -10px 10px -10px;
+  border-bottom: 1px solid gray;
   padding: 10px 10px 10px 10px;
+  font-weight: 400;
 }
-
 
 .fm-right {
   text-align: right;
 }
-
-
 
 /****************************************
  * angular components                   *
@@ -42,7 +40,6 @@
   color: #a9a9a9;
   margin: 0;
   padding: 0;
-
 }
 
 ul.fm-rating {
@@ -66,11 +63,8 @@ ul.fm-rating {
 }
 
 .fm-rating .fm-hover {
-  text-shadow: white 0 0  2px,
-  white 0 0  2px,
-  white 0 0  2px,
-  white 0 0  2px,
-  blue  0 0 10px;
+  text-shadow: white 0 0 2px, white 0 0 2px, white 0 0 2px, white 0 0 2px,
+    blue 0 0 10px;
 }
 
 fm-rating a {
@@ -82,27 +76,21 @@ fm-rating:hover a {
   visibility: visible;
 }
 
-
 .fm-deliver-to {
   display: block;
   width: 450px;
 }
 
-
 input.ng-invalid.ng-dirty {
-  border-color: #E9322D;
-  -webkit-box-shadow: 0 0 6px #F8B9B7;
+  border-color: #e9322d;
+  -webkit-box-shadow: 0 0 6px #f8b9b7;
   -moz-box-shadow: 0 0 6px #f8b9b7;
-  box-shadow: 0 0 6px #F8B9B7;
+  box-shadow: 0 0 6px #f8b9b7;
 }
-
-
-
 
 /****************************************
  * route specific css                   *
  ****************************************/
-
 
 /* customer */
 
@@ -111,7 +99,6 @@ input.ng-invalid.ng-dirty {
   opacity: 0.4;
   height: 705px;
 }
-
 
 /* restaurant list */
 
@@ -138,15 +125,17 @@ input.ng-invalid.ng-dirty {
   height: 100px;
 }
 
-
 /* menu */
 
-.fm-restaurant  {
+.fm-restaurant {
   margin-bottom: 20px;
 }
 
 .fm-restaurant h3 {
   margin-top: 0;
+}
+tr td {
+  border-bottom: 1px solid grey;
 }
 
 .fm-restaurant img {
@@ -165,6 +154,10 @@ input.ng-invalid.ng-dirty {
 .fm-menu-list li span {
   padding-right: 20px;
 }
+tr td {
+  border-bottom: 1px solid #d2cbcb;
+  padding: 8px;
+}
 
 .fm-menu-list a {
   color: inherit;
@@ -175,10 +168,12 @@ input.ng-invalid.ng-dirty {
   color: inherit;
 }
 
-.fm-menu-list .icon-plus-sign {
-  visibility: hidden;
+table {
+  width: 100%;
 }
-
+i.icon-plus-sign {
+  cursor: pointer;
+}
 .fm-menu-list li:hover .icon-plus-sign {
   visibility: visible;
 }
@@ -188,33 +183,127 @@ input.ng-invalid.ng-dirty {
 }
 
 .fm-menu-list ul li {
-  text-align: center;
+  margin-bottom: 9px;
+  border-bottom: 1px solid #dcd3d3;
+  padding-bottom: 2px;
 }
 
 .fm-cart li {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  margin-bottom: 9px;
+  border-bottom: 1px solid #dcd3d3;
+  padding-bottom: 2px;
 }
-
-.fm-cart .icon-remove-sign {
-  visibility: hidden;
+.tot {
+  margin-left: 35px;
 }
-
-.fm-cart li:hover .icon-remove-sign {
-  visibility: visible;
+a.btn {
+  border: none;
+  background: #065af3;
+  color: #ffff;
+  font-weight: 200;
+  font-size: 15px;
 }
-
 .fm-cart form {
   padding-left: 2px;
 }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+span.ratings {
+  border: 1px solid #c3c3c3;
+  padding: 4px;
+  font-size: 11px;
+  margin-bottom: 6px;
+  margin-left: 4px;
+}
+.ratings {
+  border: 1px solid #c3c3c3;
+  padding: 5px 6px 2px 6px;
+  font-size: 11px;
+  margin-bottom: 6px;
+  margin-left: 4px;
+}
+.min-max {
+  display: flex;
+  margin-top: 6px;
+}
+.to {
+  margin-top: 10px;
+  color: grey;
+}
 
+.min-container {
+  width: 33%;
+  font-size: 13px;
+  margin: 10px;
+  height: 14px;
+}
+
+.cuisine-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* CSS goes here */
+
+.slider {
+  position: relative;
+  text-align: left;
+  background: #969191;
+  height: 2px;
+}
+
+.slider .handle {
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+  width: 12px;
+  top: -7px;
+  height: 12px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+.handle {
+  top: -0.3em;
+  margin-left: -0.6em;
+}
+
+.slider .range {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  font-size: 0.7em;
+  background-color: #3874f0;
+  top: -3px;
+  height: 6px;
+}
+i.fa.fa-close {
+  position: relative;
+  top: 0px;
+  font-size: 9px;
+  cursor: pointer;
+  margin-right: 4px;
+  color: #989898;
+}
+.info-cont {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.days {
+  font-weight: 200;
+  margin-left: 5px;
+}
 .fm-cart p {
   padding-left: 20px;
   padding-top: 5px;
 }
 
-
+.total-amount {
+  font-weight: 400;
+  margin-left: 6px;
+}
 /* checkout */
 
 .fm-checkout table {

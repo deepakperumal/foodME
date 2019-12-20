@@ -12,9 +12,12 @@
       <div class="span6">
         <h5>Payment:</h5>
         <div class="control-group">
-          <select name="ccType" class="input-medium"
-                  required
-                  ng-model="cart.payment.type">
+          <select
+            name="ccType"
+            class="input-medium"
+            required
+            ng-model="cart.payment.type"
+          >
             <option value="visa">Visa</option>
             <option value="mc">MasterCard</option>
             <option value="amex">Amex</option>
@@ -22,23 +25,40 @@
           </select>
         </div>
         <div class="control-group">
-          <input type="text" name="ccNum"
-                 placeholder="Card number"
-                 maxlength="16"
-                 required ng-pattern="/\d{16}/"
-                 ng-model="cart.payment.number">
+          <input
+            type="text"
+            name="ccNum"
+            placeholder="Card number"
+            maxlength="16"
+            required
+            ng-pattern="/\d{16}/"
+            ng-model="cart.payment.number"
+          />
         </div>
         <span class="control-group">
-          <input type="text" name="ccExp" placeholder="mm/yyyy" class="input-medium"
-                 maxlength="16"
-                 required ng-pattern="/\d\d\/\d\d\d\d/"
-                 ng-model="cart.payment.expire">
+          <input
+            type="text"
+            name="ccExp"
+            placeholder="mm/yyyy"
+            class="input-medium"
+            maxlength="16"
+            required
+            ng-pattern="/\d\d\/\d\d\d\d/"
+      
+           
+          />
         </span>
         <span class="control-group">
-          <input type="text" name="ccCvc" placeholder="CVC" class="input-small"
-                 maxlength="4"
-                 required ng-pattern="/\d{3,4}/"
-                 ng-model="cart.payment.cvc">
+          <input
+            type="text"
+            name="ccCvc"
+            placeholder="CVC"
+            class="input-small"
+            maxlength="4"
+            required
+            ng-pattern="/\d{3,4}/"
+            ng-model="cart.payment.cvc"
+          />
         </span>
       </div>
     </div>
@@ -53,11 +73,15 @@
           <th></th>
         </tr>
         <tr ng-repeat="item in cart.items">
-          <td><input type="number" ng-model="item.qty"></td>
+          <td><input type="number" ng-model="item.qty" /></td>
           <td>{{item.name}}</td>
           <td>{{item.price | currency}}</td>
           <td>{{item.price * item.qty | currency}}</td>
-          <td><a href ng-click="cart.remove(item)"><i class="icon-remove-sign"></i></a></td>
+          <td>
+            <a href ng-click="cart.remove(item)"
+              ><i class="icon-remove-sign"></i
+            ></a>
+          </td>
         </tr>
         <tr>
           <th></th>
@@ -71,9 +95,13 @@
       <div class="fm-right">
         <a href="#/menu/{{restaurantId}}" class="btn">Back to Menu</a>
         <a href class="btn btn-danger" ng-click="cart.reset()">Clear Cart</a>
-        <button class="btn btn-primary"
-                ng-disabled="form.$invalid || !cart.items.length || submitting"
-                ng-click="purchase()">Purchase</button>
+        <button
+          class="btn btn-primary"
+          ng-disabled="form.$invalid || !cart.items.length || submitting"
+          ng-click="purchase()"
+        >
+          Purchase
+        </button>
       </div>
     </div>
   </div>

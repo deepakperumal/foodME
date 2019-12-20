@@ -11,6 +11,8 @@ foodMeApp.directive('fmRating', function() {
     require: 'ngModel',
     link: function(scope, element, attrs, ngModel) {
 
+      
+
       attrs.max = scope.max = parseInt(scope.max || 5, 10);
 
       if (!attrs.symbol) {
@@ -42,6 +44,8 @@ foodMeApp.directive('fmRating', function() {
 
       // view -> model
       scope.select = function(index) {
+
+ 
         if (scope.readonly) return;
 
         ngModel.$setViewValue((index == null) ? null : index + 1);
@@ -69,6 +73,6 @@ foodMeApp.directive('fmRating', function() {
           '{{symbol}}' +
         '</li>' +
       '</ul>' +
-      '<a ng-hide="readonly" ng-click="select(null)">clear</a>'
+      ' '
   };
 });
