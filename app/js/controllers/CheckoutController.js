@@ -10,9 +10,18 @@ foodMeApp.controller('CheckoutController', function CheckoutController(
   $scope.restaurantId = cart.restaurant.id;
   $scope.customer = customer;
   $scope.submitting = false;
- 
+  $scope.date = '';
 
- 
+  var element = angular.element('#date');
+  element.keypress(function() {
+    var elem = document.getElementById('date').value;
+    if (elem.length == 1) {
+      setTimeout(function() {
+        document.getElementById('date').value += '/';
+      }, 100);
+    }
+  });
+
   $scope.purchase = function() {
     if ($scope.submitting) return;
 

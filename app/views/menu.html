@@ -33,11 +33,7 @@
             ng-model="$parent.restaurant.rating"
             readonly="true"
           ></fm-rating>
-          <fm-rating
-            ng-model="$parent.restaurant.price"
-            symbol="$"
-            readonly="true"
-          ></fm-rating>
+          {{restaurant.price | currency}}
         </div>
         <div class="span4">
           <div>{{restaurant.description}}</div>

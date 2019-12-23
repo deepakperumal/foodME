@@ -42,7 +42,7 @@
   padding: 0;
 }
 
-ul.fm-rating {
+.fm-rating {
   display: inline-block;
 }
 
@@ -118,7 +118,15 @@ input.ng-invalid.ng-dirty {
 .fm-restaurant-list th {
   width: 100px;
 }
-
+.list-group1 li {
+  cursor: pointer;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 5px;
+}
+.list-group1 li:hover
+{
+  color: #6EB9F0;
+}
 .fm-restaurant-list img {
   margin-right: 10px;
   width: 100px;
@@ -216,14 +224,29 @@ span.ratings {
   font-size: 11px;
   margin-bottom: 6px;
   margin-left: 4px;
+  text-transform: capitalize;
 }
 .ratings {
   border: 1px solid #c3c3c3;
-  padding: 5px 6px 2px 6px;
+  padding: 4px;
   font-size: 11px;
   margin-bottom: 6px;
   margin-left: 4px;
+  background: #adadad;
+  text-transform: capitalize;
 }
+.list-group1 {
+  position: absolute;
+  max-height: 132px;
+  overflow: hidden;
+  background: #ffff;
+  width: 271px;
+  padding: 11px;
+  margin-left: -6px;
+  overflow-y: scroll;
+  z-index: 999;
+}
+
 .min-max {
   display: flex;
   margin-top: 6px;
@@ -269,7 +292,26 @@ span.ratings {
   top: -0.3em;
   margin-left: -0.6em;
 }
+.t5 {
+  text-decoration: line-through;
+  cursor: pointer;
+}
+.list-group1::-webkit-scrollbar {
+  width: 15px;
+}
 
+.list-group1::-webkit-scrollbar-track {
+  background-color: #ffffff;
+} 
+.list-group1::-webkit-scrollbar-thumb {
+  background-color: rgb(2, 2, 2);
+} 
+.list-group1::-webkit-scrollbar-button {
+  background-color: #ffffff;
+} 
+.list-group1::-webkit-scrollbar-corner {
+  background-color: black;
+} 
 .slider .range {
   position: absolute;
   z-index: 1;
@@ -285,7 +327,7 @@ i.fa.fa-close {
   font-size: 9px;
   cursor: pointer;
   margin-right: 4px;
-  color: #989898;
+  color: #212121;
 }
 .info-cont {
   margin-bottom: 6px;

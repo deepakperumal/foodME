@@ -27,14 +27,13 @@ foodMeApp.controller('RestaurantsController', function RestaurantsController(
   $scope.$watch('filter', filterAndSortRestaurants, true);
 
   function filterAndSortRestaurants() {
-
-
- 
     $scope.restaurants = [];
+ 
+ 
 
     // filter
     angular.forEach(allRestaurants, function(item, key) {
-      if (filter.price && filter.price != item.price) {
+      if (item.price < filter.price || item.price > filter.price_max) {
         return;
       }
 
