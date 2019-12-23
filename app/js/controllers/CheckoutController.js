@@ -13,8 +13,11 @@ foodMeApp.controller('CheckoutController', function CheckoutController(
   $scope.date = '';
 
   var element = angular.element('#date');
-  element.keypress(function() {
+  element.keypress(function(e) {
     var elem = document.getElementById('date').value;
+
+    if (elem.length > 6) e.preventDefault();
+
     if (elem.length == 1) {
       setTimeout(function() {
         document.getElementById('date').value += '/';

@@ -10,11 +10,10 @@ foodMeApp.controller('CustomerController', function CustomerController(
 
   var element = angular.element('#address');
   element.keyup(function() {
-    const regexp = new RegExp($scope.customerAddress, 'i');
+    const regexp = new RegExp($scope.customerAddress, 'gi');
     var output = [];
     $scope.countryList.map(x => {
-      x = x.toLowerCase();
-      if (x.includes($scope.customerAddress)) {
+      if (x.match(regexp)) {
         output.push(x);
       }
     });

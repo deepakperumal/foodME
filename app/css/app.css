@@ -299,7 +299,9 @@ span.ratings {
 .list-group1::-webkit-scrollbar {
   width: 15px;
 }
-
+.highlighted {
+  color: orange;
+}
 .list-group1::-webkit-scrollbar-track {
   background-color: #ffffff;
 } 
